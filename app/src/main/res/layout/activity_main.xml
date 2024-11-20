@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <!--Publisher Screen-->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/publisher"
+        android:padding="32dp"
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <TextView
+            android:id="@+id/tvStudentOnboarding"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Assignment Two - Publisher"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+        <EditText
+            android:id="@+id/studentID"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:inputType="text"
+            android:hint="Enter Student ID"
+            app:layout_constraintTop_toBottomOf="@+id/tvStudentOnboarding"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_height="wrap_content" />
+        <LinearLayout
+            android:id="@+id/llStudentOnboarding"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvStudentOnboarding" >
+            <Button
+                android:id="@+id/startPublishing"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="62dp"
+                android:onClick="startPublishing"
+                app:layout_constraintStart_toStartOf="parent"
+                android:text="Start Publishing" />
+            <Button
+                android:id="@+id/stopPublishing"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="62dp"
+                android:onClick="stopPublishing"
+                app:layout_constraintStart_toEndOf="@+id/startPublishing"
+                android:text="Stop Publishing" />
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!--Subscriber Screen-->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/subscriber"
+        android:padding="32dp"
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+        <TextView
+            android:id="@+id/tvSubscriber1"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:text="Assignment Two - Publisher"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintHeight_percent="0.10"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+        <TextView
+            android:id="@+id/tvSubscriber2"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:text="Live View (Last 5 Minutes)"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintHeight_percent="0.10"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvSubscriber1" />
+        <fragment
+            class="com.google.android.gms.maps.SupportMapFragment"
+            android:id="@+id/map"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintHeight_percent="0.5"
+            app:layout_constraintTop_toBottomOf="@+id/tvSubscriber2" />
+        <!--Main-->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/clients"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/map"
+            app:layout_constraintHeight_percent="0.30" />
+        <!--View More-->
+        <TextView
+            android:id="@+id/tvSubscriber3"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:text="Max Speed: N/A"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintHeight_percent="0.10"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/map" />
+        <TextView
+            android:id="@+id/tvSubscriber4"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:text="Min Speed: N/A"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintHeight_percent="0.10"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvSubscriber3" />
+        <TextView
+            android:id="@+id/tvSubscriber5"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:text="Average Speed: N/A"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintHeight_percent="0.10"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvSubscriber4" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
